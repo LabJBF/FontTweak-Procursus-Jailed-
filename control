@@ -1,0 +1,9 @@
+Package: org.emexlabs.fonttweak
+Name: Font Tweak
+Version: 0.1
+Architecture: iphoneos-arm64
+Description: System-wide custom font substitution for Procursus Jailed.
+Maintainer: Your Name <you@example.com>
+Author: Your Name <you@example.com>
+Section: Tweaks
+Depends: firmware (>= 16.0)
