@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>Title</key>
+	<string>Font Tweak</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Font Files</string>
+			<key>FooterText</key>
+			<string>Place .ttf/.otf files in /Library/Application Support/FontTweak/Fonts (via Filza, the Files tweak, or SSH), then pick them here. Bold is optional.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSLinkCell</string>
+			<key>Title</key>
+			<string>Regular Font</string>
+			<key>Detail</key>
+			<string>FontTweakListController</string>
+			<key>Bundle</key>
+			<string>FontTweakPrefs</string>
+			<key>role</key>
+			<string>Regular</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSLinkCell</string>
+			<key>Title</key>
+			<string>Bold Font</string>
+			<key>Detail</key>
+			<string>FontTweakListController</string>
+			<key>Bundle</key>
+			<string>FontTweakPrefs</string>
+			<key>role</key>
+			<string>Bold</string>
+		</dict>
+	</array>
+</dict>
+</plist>
