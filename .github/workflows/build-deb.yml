@@ -1,0 +1,31 @@
+name: Build .deb
+
+on:
+  push:
+  workflow_dispatch: {} # lets you trigger a build manually from the Actions tab too
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Theos
+        run: |
+          export THEOS=$HOME/theos
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+
+      # macos-latest ships Xcode, so Theos finds the iOS SDK automatically -
+      # this is the whole reason to build here instead of on Linux.
+      - name: Build package
+        run: |
+          make package FINALPACKAGE=1
+
+      - name: Upload .deb
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: packages/*.deb
