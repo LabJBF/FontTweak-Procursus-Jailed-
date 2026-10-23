@@ -1,8 +1,9 @@
+
 name: Build .deb
 
 on:
   push:
-  workflow_dispatch: {} # lets you trigger a build manually from the Actions tab too
+  workflow_dispatch: {}
 
 jobs:
   build:
@@ -14,18 +15,18 @@ jobs:
 
       - name: Install Theos
         run: |
-          export THEOS=$HOME/theos
+          export THEOS="$HOME/theos"
           bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
-          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+          echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
 
-      # macos-latest ships Xcode, so Theos finds the iOS SDK automatically -
-      # this is the whole reason to build here instead of on Linux.
-      - name: Build package
+      - name: Build RootHide package
         run: |
-          make package FINALPACKAGE=1
+          make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=roothide
 
       - name: Upload .deb
         uses: actions/upload-artifact@v4
         with:
-          name: package
-          path: ´**/packages/*.deb´
+          name: FontTweak-RootHide
+          path: "**/packages/*.deb"
+          if-no-files-found: error
+
