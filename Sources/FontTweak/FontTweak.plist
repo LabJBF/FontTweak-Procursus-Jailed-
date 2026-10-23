@@ -1,0 +1,16 @@
+{
+	Filter = {
+		/*
+		 Classic MobileSubstrate idiom for "every app that uses UIKit" -
+		 matching on a framework bundle ID that's loaded in-process, not
+		 just the main app's own bundle ID. This should cover
+		 SpringBoard, Sileo, NewTerm, TweakSettings, and any app you add
+		 later, as long as UIKit's bundle identifier here matches real
+		 iOS's ("com.apple.UIKit"). Confirm against another known
+		 system-wide community tweak if this doesn't fire everywhere you
+		 expect - the NXAppearance tweak we inspected only filtered on
+		 SpringBoard specifically, so it wasn't a reference for this part.
+		*/
+		Bundles = ( "com.apple.UIKit" );
+	};
+}
