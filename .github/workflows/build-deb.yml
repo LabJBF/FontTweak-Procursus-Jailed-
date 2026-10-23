@@ -12,11 +12,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Theos
+      - name: Install RootHide Theos
         run: |
           export THEOS="$HOME/theos"
-          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/roothide/theos/master/bin/install-theos)"
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
+
+      - name: Verify RootHide scheme
+        run: |
+          grep -R -n 'roothide' "$THEOS/makefiles" || {
+            echo "RootHide scheme not found in Theos installation"
+            exit 1
+          }
 
       - name: Build RootHide package
         run: |
@@ -28,4 +35,3 @@ jobs:
           name: FontTweak-RootHide
           path: "**/packages/*.deb"
           if-no-files-found: error
-
