@@ -4,10 +4,7 @@ BUNDLE_NAME = FontTweakPrefs
 
 FontTweakPrefs_FILES = FontTweakListController.m
 FontTweakPrefs_INSTALL_PATH = /Library/PreferenceBundles
-
 FontTweakPrefs_FRAMEWORKS = UIKit
-FontTweakPrefs_PRIVATE_FRAMEWORKS = Preferences
-
 FontTweakPrefs_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/bundle.mk
