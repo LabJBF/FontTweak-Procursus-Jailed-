@@ -1,0 +1,14 @@
+{
+	Filter = {
+		/*
+		 Switched from an unverified "match com.apple.UIKit" wildcard to
+		 explicit executable names, matching the only pattern actually
+		 confirmed across Icon Tint, Home Style, and the appearance
+		 tweak we inspected earlier - none of them used a broad "every
+		 app" filter, they all scope to specific named executables.
+		 Add more names here (one per app you want themed) if you want
+		 this tweak's font to apply somewhere else too.
+		*/
+		Executables = ( "SpringBoard", "Sileo", "NewTerm", "TweakSettings" );
+	};
+}
