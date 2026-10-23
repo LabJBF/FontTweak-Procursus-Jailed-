@@ -1,9 +1,0 @@
-Package: org.emexlabs.fonttweak
-Name: FontTweak
-Version: 0.1
-Architecture: iphoneos-arm
-Description: Custom font selection for iOS
-Maintainer: Mac.Clover
-Author: Mac.Clover
-Section: Tweaks
-Depends: mobilesubstrate
