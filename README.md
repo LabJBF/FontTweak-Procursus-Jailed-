@@ -1,4 +1,6 @@
-# FontTweak-Procursus-Jailed-
+<img src="derootifier-2-modified.png" alt="Logo" width="70" height="70">
+
+# FontTweak-Procursus-Jailed
 A tweak that changes your system font
 
 > [!NOTE]
