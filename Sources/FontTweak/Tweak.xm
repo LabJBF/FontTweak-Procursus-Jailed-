@@ -1,4 +1,3 @@
-
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
 #import <roothide.h>
@@ -8,18 +7,16 @@ static NSString * const kPrefsSuite = @"org.emexlabs.fonttweak";
 static NSString * const kRegularFileKey = @"RegularFontFile";
 static NSString * const kBoldFileKey = @"BoldFontFile";
 
-// Maps font filenames to their registered PostScript names.
 static NSMutableDictionary<NSString *, NSString *> *gFontNamesByFile = nil;
 
-// Resolve the logical path using RootHide.
 static NSString *FontTweakFontsDirPath(void) {
     return jbroot(kFontsDirLogicalPath);
 }
 
 static NSString *FontTweakRegisterFontFile(NSString *path) {
     NSURL *url = [NSURL fileURLWithPath:path];
-
     CFErrorRef error = NULL;
+
     if (!CTFontManagerRegisterFontsForURL(
             (__bridge CFURLRef)url,
             kCTFontManagerScopeProcess,
@@ -107,21 +104,17 @@ static UIFont *FontTweakFontForSizeAndWeight(
 + (UIFont *)systemFontOfSize:(CGFloat)size {
     UIFont *custom =
         FontTweakFontForSizeAndWeight(size, UIFontWeightRegular);
-
     return custom ?: %orig;
 }
 
 + (UIFont *)boldSystemFontOfSize:(CGFloat)size {
     UIFont *custom =
         FontTweakFontForSizeAndWeight(size, UIFontWeightBold);
-
     return custom ?: %orig;
 }
 
 + (UIFont *)systemFontOfSize:(CGFloat)size weight:(UIFontWeight)weight {
-    UIFont *custom =
-        FontTweakFontForSizeAndWeight(size, weight);
-
+    UIFont *custom = FontTweakFontForSizeAndWeight(size, weight);
     return custom ?: %orig;
 }
 
@@ -160,8 +153,4 @@ static UIFont *FontTweakFontForSizeAndWeight(
         error:nil];
 
     FontTweakScanAndRegisterAll();
-}
-Path:dir withIntermediateDirectories:YES attributes:nil error:nil];
-
-	FontTweakScanAndRegisterAll();
 }
